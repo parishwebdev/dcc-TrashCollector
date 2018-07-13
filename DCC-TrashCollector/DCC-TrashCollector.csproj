@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.8.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -116,12 +122,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -190,12 +190,41 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807130002448_InitialCreate.cs" />
+    <Compile Include="Migrations\201807130002448_InitialCreate.Designer.cs">
+      <DependentUpon>201807130002448_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807130020554_Initial Migration.cs" />
+    <Compile Include="Migrations\201807130020554_Initial Migration.Designer.cs">
+      <DependentUpon>201807130020554_Initial Migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807130043541_FirstName, LastName Added.cs" />
+    <Compile Include="Migrations\201807130043541_FirstName, LastName Added.Designer.cs">
+      <DependentUpon>201807130043541_FirstName, LastName Added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807130051082_Add Properties for First and Last Name in Identity Model.cs" />
+    <Compile Include="Migrations\201807130051082_Add Properties for First and Last Name in Identity Model.Designer.cs">
+      <DependentUpon>201807130051082_Add Properties for First and Last Name in Identity Model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807130126241_employee updated migration.cs" />
+    <Compile Include="Migrations\201807130126241_employee updated migration.Designer.cs">
+      <DependentUpon>201807130126241_employee updated migration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807130141334_added userid to reference.cs" />
+    <Compile Include="Migrations\201807130141334_added userid to reference.Designer.cs">
+      <DependentUpon>201807130141334_added userid to reference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerAddress.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -258,6 +287,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -274,6 +308,26 @@
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201807130002448_InitialCreate.resx">
+      <DependentUpon>201807130002448_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807130020554_Initial Migration.resx">
+      <DependentUpon>201807130020554_Initial Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807130043541_FirstName, LastName Added.resx">
+      <DependentUpon>201807130043541_FirstName, LastName Added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807130051082_Add Properties for First and Last Name in Identity Model.resx">
+      <DependentUpon>201807130051082_Add Properties for First and Last Name in Identity Model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807130126241_employee updated migration.resx">
+      <DependentUpon>201807130126241_employee updated migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807130141334_added userid to reference.resx">
+      <DependentUpon>201807130141334_added userid to reference.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
