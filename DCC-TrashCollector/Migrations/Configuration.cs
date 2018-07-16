@@ -1,5 +1,6 @@
 namespace DCC_TrashCollector.Migrations
 {
+    using DCC_TrashCollector.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,7 +11,6 @@ namespace DCC_TrashCollector.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "DCC_TrashCollector.Models.ApplicationDbContext";
         }
 
         protected override void Seed(DCC_TrashCollector.Models.ApplicationDbContext context)
@@ -19,6 +19,15 @@ namespace DCC_TrashCollector.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+
+            context.Days.AddOrUpdate(x => x.DayId,
+                new Day() { DayId = 1, DayChoosen = "Monday"},
+                new Day() { DayId = 2, DayChoosen = "Tuesday" },
+                new Day() { DayId = 3, DayChoosen = "Wednesday"},
+                new Day() { DayId = 4, DayChoosen = "Thursday" },
+                new Day() { DayId = 5, DayChoosen = "Friday" });
+
+
         }
     }
 }

@@ -9,11 +9,14 @@ namespace DCC_TrashCollector.Models
     public class CustomerAddress
     {
         [Key]
-        public int Id { get; set; }
+        public int CustomerAddressId { get; set; }
+
+        [Display(Name = "Address")]
         public string AddressLine { get; set; }
         public string City { get; set; }
         //filter for only 5 digets (watch vid)
-        public string Zip { get; set; }
+        public int Zip { get; set; }
+        public string State { get; set; }
 
     }
 }

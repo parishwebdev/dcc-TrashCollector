@@ -190,40 +190,55 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807130002448_InitialCreate.cs" />
-    <Compile Include="Migrations\201807130002448_InitialCreate.Designer.cs">
-      <DependentUpon>201807130002448_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201807141540573_initial.cs" />
+    <Compile Include="Migrations\201807141540573_initial.Designer.cs">
+      <DependentUpon>201807141540573_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807130020554_Initial Migration.cs" />
-    <Compile Include="Migrations\201807130020554_Initial Migration.Designer.cs">
-      <DependentUpon>201807130020554_Initial Migration.cs</DependentUpon>
+    <Compile Include="Migrations\201807141615389_Second Migration.cs" />
+    <Compile Include="Migrations\201807141615389_Second Migration.Designer.cs">
+      <DependentUpon>201807141615389_Second Migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807130043541_FirstName, LastName Added.cs" />
-    <Compile Include="Migrations\201807130043541_FirstName, LastName Added.Designer.cs">
-      <DependentUpon>201807130043541_FirstName, LastName Added.cs</DependentUpon>
+    <Compile Include="Migrations\201807141652155_fourth migration.cs" />
+    <Compile Include="Migrations\201807141652155_fourth migration.Designer.cs">
+      <DependentUpon>201807141652155_fourth migration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807130051082_Add Properties for First and Last Name in Identity Model.cs" />
-    <Compile Include="Migrations\201807130051082_Add Properties for First and Last Name in Identity Model.Designer.cs">
-      <DependentUpon>201807130051082_Add Properties for First and Last Name in Identity Model.cs</DependentUpon>
+    <Compile Include="Migrations\201807141706529_date migration .cs" />
+    <Compile Include="Migrations\201807141706529_date migration .Designer.cs">
+      <DependentUpon>201807141706529_date migration .cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807130126241_employee updated migration.cs" />
-    <Compile Include="Migrations\201807130126241_employee updated migration.Designer.cs">
-      <DependentUpon>201807130126241_employee updated migration.cs</DependentUpon>
+    <Compile Include="Migrations\201807141736003_adding days of the week.cs" />
+    <Compile Include="Migrations\201807141736003_adding days of the week.Designer.cs">
+      <DependentUpon>201807141736003_adding days of the week.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807130141334_added userid to reference.cs" />
-    <Compile Include="Migrations\201807130141334_added userid to reference.Designer.cs">
-      <DependentUpon>201807130141334_added userid to reference.cs</DependentUpon>
+    <Compile Include="Migrations\201807141743344_days of the week population.cs" />
+    <Compile Include="Migrations\201807141743344_days of the week population.Designer.cs">
+      <DependentUpon>201807141743344_days of the week population.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807141744503_new pop days.cs" />
+    <Compile Include="Migrations\201807141744503_new pop days.Designer.cs">
+      <DependentUpon>201807141744503_new pop days.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807141749039_datatype change.cs" />
+    <Compile Include="Migrations\201807141749039_datatype change.Designer.cs">
+      <DependentUpon>201807141749039_datatype change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807162143318_seed days.cs" />
+    <Compile Include="Migrations\201807162143318_seed days.Designer.cs">
+      <DependentUpon>201807162143318_seed days.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerAddress.cs" />
+    <Compile Include="Models\CustomerSchedule.cs" />
+    <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -292,6 +307,8 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Customer\Index.cshtml" />
+    <Content Include="Views\Customer\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -310,23 +327,32 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807130002448_InitialCreate.resx">
-      <DependentUpon>201807130002448_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807141540573_initial.resx">
+      <DependentUpon>201807141540573_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807130020554_Initial Migration.resx">
-      <DependentUpon>201807130020554_Initial Migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807141615389_Second Migration.resx">
+      <DependentUpon>201807141615389_Second Migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807130043541_FirstName, LastName Added.resx">
-      <DependentUpon>201807130043541_FirstName, LastName Added.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807141652155_fourth migration.resx">
+      <DependentUpon>201807141652155_fourth migration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807130051082_Add Properties for First and Last Name in Identity Model.resx">
-      <DependentUpon>201807130051082_Add Properties for First and Last Name in Identity Model.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807141706529_date migration .resx">
+      <DependentUpon>201807141706529_date migration .cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807130126241_employee updated migration.resx">
-      <DependentUpon>201807130126241_employee updated migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807141736003_adding days of the week.resx">
+      <DependentUpon>201807141736003_adding days of the week.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807130141334_added userid to reference.resx">
-      <DependentUpon>201807130141334_added userid to reference.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201807141743344_days of the week population.resx">
+      <DependentUpon>201807141743344_days of the week population.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807141744503_new pop days.resx">
+      <DependentUpon>201807141744503_new pop days.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807141749039_datatype change.resx">
+      <DependentUpon>201807141749039_datatype change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807162143318_seed days.resx">
+      <DependentUpon>201807162143318_seed days.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
