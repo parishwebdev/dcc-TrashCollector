@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -11,9 +12,12 @@ namespace DCC_TrashCollector.Models
         [Key]
         public int CustomerScheduleId { get; set; }
 
+        [ForeignKey("Day")]
         [Display(Name = "Pick Up Day")]
-        [DataType(DataType.DateTime)]
-        public DayOfWeek RegPickupDate { get; set; }
+        public int DayId { get; set; }
+        public Day Day { get; set; }
+
+        public IEnumerable<Day> DaysOfWeek;
 
         public bool Pickedup { get; set; }
 
@@ -28,7 +32,7 @@ namespace DCC_TrashCollector.Models
         [DataType(DataType.Date)]
         public DateTime? TempEndDate { get; set; }
 
-        public IEnumerable<Day> DaysOfWeek;
+        
 
     }
 }

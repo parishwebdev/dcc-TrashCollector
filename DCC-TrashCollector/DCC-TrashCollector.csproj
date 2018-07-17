@@ -190,7 +190,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerAddressesController.cs" />
+    <Compile Include="Controllers\CustomerSchedulesController.cs" />
+    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -232,6 +234,10 @@
     <Compile Include="Migrations\201807162143318_seed days.cs" />
     <Compile Include="Migrations\201807162143318_seed days.Designer.cs">
       <DependentUpon>201807162143318_seed days.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807170015423_customer schedule and day changes.cs" />
+    <Compile Include="Migrations\201807170015423_customer schedule and day changes.Designer.cs">
+      <DependentUpon>201807170015423_customer schedule and day changes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -307,8 +313,21 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Customer\Index.cshtml" />
-    <Content Include="Views\Customer\Create.cshtml" />
+    <Content Include="Views\CustomerSchedules\Create.cshtml" />
+    <Content Include="Views\CustomerSchedules\Delete.cshtml" />
+    <Content Include="Views\CustomerSchedules\Details.cshtml" />
+    <Content Include="Views\CustomerSchedules\Edit.cshtml" />
+    <Content Include="Views\CustomerSchedules\Index.cshtml" />
+    <Content Include="Views\CustomerAddresses\Create.cshtml" />
+    <Content Include="Views\CustomerAddresses\Delete.cshtml" />
+    <Content Include="Views\CustomerAddresses\Details.cshtml" />
+    <Content Include="Views\CustomerAddresses\Edit.cshtml" />
+    <Content Include="Views\CustomerAddresses\Index.cshtml" />
+    <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\Delete.cshtml" />
+    <Content Include="Views\Customers\Details.cshtml" />
+    <Content Include="Views\Customers\Edit.cshtml" />
+    <Content Include="Views\Customers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,6 +372,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807162143318_seed days.resx">
       <DependentUpon>201807162143318_seed days.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807170015423_customer schedule and day changes.resx">
+      <DependentUpon>201807170015423_customer schedule and day changes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

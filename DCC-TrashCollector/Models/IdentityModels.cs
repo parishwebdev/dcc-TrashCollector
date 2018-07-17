@@ -40,7 +40,8 @@ namespace DCC_TrashCollector.Models
 
         public System.Data.Entity.DbSet<DCC_TrashCollector.Models.Employee> Employees { get; set; }
 
+        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.CustomerSchedule> CustomerSchedules { get; set; }
 
-
+        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.CustomerAddress> CustomerAddresses { get; set; }
     }
 }

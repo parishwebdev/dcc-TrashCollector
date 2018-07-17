@@ -7,22 +7,21 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DCC_TrashCollector.Models;
-using Microsoft.AspNet.Identity;
 
 namespace DCC_TrashCollector.Controllers
 {
-    public class CustomerController : Controller
+    public class CustomersController : Controller
     {
-
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Customer
+        // GET: Customers
         public ActionResult Index()
         {
-            return View(db.Customers.ToList());
+            var customers = db.Customers.Include(c => c.CustomerAddress).Include(c => c.CustomerSchedule);
+            return View(customers.ToList());
         }
 
-        // GET: Customer/Details/5
+        // GET: Customers/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,30 +36,34 @@ namespace DCC_TrashCollector.Controllers
             return View(customer);
         }
 
-        // GET: Customer/Create
+        // GET: Customers/Create
         public ActionResult Create()
         {
+            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine");
+            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId");
             return View();
         }
 
-        // POST: Customer/Create
+        // POST: Customers/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Create([Bind(Include = "CustomerID,Balance,CustomerAddressId,CustomerScheduleId")] Customer customer)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "CustomerId,Balance,AspNetUserId,CustomerAddressId,CustomerScheduleId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                //Here want to save the currently logged in user id to employee model
-                customer.AspNetUserId = User.Identity.GetUserId();
-                //--------------------------------------------------
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine", customer.CustomerAddressId);
+            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId", customer.CustomerScheduleId);
             return View(customer);
         }
 
-        // GET: Customer/Edit/5
+        // GET: Customers/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -72,12 +75,17 @@ namespace DCC_TrashCollector.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine", customer.CustomerAddressId);
+            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId", customer.CustomerScheduleId);
             return View(customer);
         }
 
-        // POST: Customer/Edit/5
+        // POST: Customers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public ActionResult Edit([Bind(Include = "CustomerID,Balance,CustomerAddressId,CustomerScheduleId")] Customer customer)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([Bind(Include = "CustomerId,Balance,AspNetUserId,CustomerAddressId,CustomerScheduleId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -85,10 +93,12 @@ namespace DCC_TrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine", customer.CustomerAddressId);
+            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId", customer.CustomerScheduleId);
             return View(customer);
         }
 
-        // GET: Customer/Delete/5
+        // GET: Customers/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -103,7 +113,7 @@ namespace DCC_TrashCollector.Controllers
             return View(customer);
         }
 
-        // POST: Customer/Delete/5
+        // POST: Customers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

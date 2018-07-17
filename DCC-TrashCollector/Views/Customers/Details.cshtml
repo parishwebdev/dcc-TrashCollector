@@ -1,0 +1,50 @@
+﻿@model DCC_TrashCollector.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerAddress.AddressLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerAddress.AddressLine)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CustomerSchedule.CustomerScheduleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CustomerSchedule.CustomerScheduleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Balance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUserId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -128,3 +128,4 @@ C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\De
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.newpopdays.resources
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.datatypechange.resources
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.seeddays.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.customerscheduleanddaychanges.resources
