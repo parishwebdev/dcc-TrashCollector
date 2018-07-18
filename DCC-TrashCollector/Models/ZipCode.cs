@@ -6,19 +6,15 @@ using System.Web;
 
 namespace DCC_TrashCollector.Models
 {
-    public class CustomerAddress
+    public class ZipCode
     {
         [Key]
-        public int CustomerAddressId { get; set; }
+        public int ZipCodeId { get; set; }
 
-        [Display(Name = "Address")]
-        public string AddressLine { get; set; }
-        public string City { get; set; }
-        //filter for only 5 digets (watch vid)
+        
         [Range(10000, 99999,
         ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+        [Display(Name = "Zip Code")]
         public int Zip { get; set; }
-        public string State { get; set; }
-
     }
 }

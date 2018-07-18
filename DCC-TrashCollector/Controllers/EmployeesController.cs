@@ -18,7 +18,8 @@ namespace DCC_TrashCollector.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View(db.Employees.ToList());
+            var employees = db.Employees.Include(e => e.ZipCode);
+            return View(employees.ToList());
         }
 
         // GET: Employees/Details/5
@@ -39,6 +40,7 @@ namespace DCC_TrashCollector.Controllers
         // GET: Employees/Create
         public ActionResult Create()
         {
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip");
             return View();
         }
 
@@ -47,18 +49,20 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeId,AssignZipCode")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeId,ZipId,AspNetUserId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
+
                 //Here want to save the currently logged in user id to employee model
                 employee.AspNetUserId = User.Identity.GetUserId();
-                //--------------------------------------------------
+                //--------------------------
                 db.Employees.Add(employee);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip", employee.ZipId);
             return View(employee);
         }
 
@@ -74,6 +78,7 @@ namespace DCC_TrashCollector.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip", employee.ZipId);
             return View(employee);
         }
 
@@ -82,7 +87,7 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeId,AssignZipCode")] Employee employee)
+        public ActionResult Edit([Bind(Include = "EmployeeId,ZipId,AspNetUserId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +95,7 @@ namespace DCC_TrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip", employee.ZipId);
             return View(employee);
         }
 

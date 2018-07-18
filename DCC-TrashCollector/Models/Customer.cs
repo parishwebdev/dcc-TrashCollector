@@ -13,17 +13,48 @@ namespace DCC_TrashCollector.Models
         public int CustomerId { get; set; }
         public decimal Balance { get; set; }
 
+        //~~~~~~~ Day Section ~~~~~~~~
+        [ForeignKey("Day")]
+        [Display(Name = "Pick Up Day")]
+        public int DayId { get; set; }
+        public Day Day { get; set; }
+
+        public bool Pickedup { get; set; }
+
+        [Display(Name = "Extra Pickup Date")]
+        [DataType(DataType.Date)]
+        public DateTime? ExtraPickUpDate { get; set; }
+
+        [Display(Name = "Pause Start Date")]
+        [DataType(DataType.Date)]
+        public DateTime? TempStartDate { get; set; }
+        [Display(Name = "Pause End Date")]
+        [DataType(DataType.Date)]
+        public DateTime? TempEndDate { get; set; }
+
+        // ~~~~~ User ~~~~~
         public string AspNetUserId { get; set; }
 
-        [ForeignKey("CustomerAddress")]
-        [Display(Name = "Address")]
-        public int CustomerAddressId { get; set; }
-        public CustomerAddress CustomerAddress { get; set; }
 
-        [ForeignKey("CustomerSchedule")]
-        [Display(Name = "Schedule")]
-        public int CustomerScheduleId { get; set; }
-        public CustomerSchedule CustomerSchedule { get; set; }
+        //~~~~~~~~~ Address Section ~~~~~~~~~~
+        public string AddressLine { get; set; }
+
+        [ForeignKey("City")]
+        [Display(Name = "City")]
+        public int CityId { get; set; }
+        public City City { get; set; }
+
+        [ForeignKey("ZipCode")]
+        [Display(Name = "Zip Code")]
+        public int ZipId { get; set; }
+        public ZipCode ZipCode { get; set; }
+
+        [ForeignKey("State")]
+        [Display(Name = "State")]
+        public int StateId { get; set; }
+        public State State { get; set; }
+
+
 
 
     }

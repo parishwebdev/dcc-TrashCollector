@@ -1,0 +1,16 @@
+AddressLine move to customer
+
+Make City Zip and State own tables and id of each of these in customer
+(and zipid in employee)
+
+//don't forget to set userid to current logged in person in customers like already in employee
+
+
+
+        //filter for only 5 digets 
+        [Range(10000, 99999,
+        ErrorMessage = "Value for {0} must be between {1} and {2}.")]
+
+  //Here want to save the currently logged in user id to employee model
+    employee.AspNetUserId = User.Identity.GetUserId();
+  //--------------------------

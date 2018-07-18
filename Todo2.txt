@@ -1,0 +1,6 @@
+- Clean Up Labels
+- Clean Up Customer/Emp View
+- Don't show user id
+- Hide balance/picked up in create view for customer
+- Edit navbar add customer/Employee page
+- Redirect customer on creation to detail not index

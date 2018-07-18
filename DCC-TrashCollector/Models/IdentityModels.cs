@@ -40,8 +40,11 @@ namespace DCC_TrashCollector.Models
 
         public System.Data.Entity.DbSet<DCC_TrashCollector.Models.Employee> Employees { get; set; }
 
-        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.CustomerSchedule> CustomerSchedules { get; set; }
+        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.City> Cities { get; set; }
 
-        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.CustomerAddress> CustomerAddresses { get; set; }
+        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.ZipCode> ZipCodes { get; set; }
+
+        public System.Data.Entity.DbSet<DCC_TrashCollector.Models.State> States { get; set; }
+
     }
 }

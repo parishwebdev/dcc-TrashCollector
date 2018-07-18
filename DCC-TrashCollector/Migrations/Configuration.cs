@@ -27,6 +27,24 @@ namespace DCC_TrashCollector.Migrations
                 new Day() { DayId = 4, DayChoosen = "Thursday" },
                 new Day() { DayId = 5, DayChoosen = "Friday" });
 
+            context.Cities.AddOrUpdate(y => y.CityId,
+                new City() { CityId = 1, Name = "Greendale" },
+                new City() { CityId = 2, Name = "Franklin" },
+                new City() { CityId = 3, Name = "GreenField" },
+                new City() { CityId = 4, Name = "Minneapolis"});
+
+            context.ZipCodes.AddOrUpdate(y => y.ZipCodeId,
+                new ZipCode() { ZipCodeId = 1, Zip = 53129 },
+                new ZipCode() { ZipCodeId = 2, Zip = 53132 },
+                new ZipCode() { ZipCodeId = 3, Zip = 53228 },
+                new ZipCode() { ZipCodeId = 4, Zip = 53220 },
+                new ZipCode() { ZipCodeId = 5, Zip = 53221},
+                new ZipCode() { ZipCodeId = 6, Zip = 55406 },
+                new ZipCode() { ZipCodeId = 7, Zip = 55417 });
+
+            context.States.AddOrUpdate(y => y.StateId,
+                new State() { StateId = 1, Name = "WI" },
+                new State() { StateId = 2, Name = "MI" });
 
         }
     }

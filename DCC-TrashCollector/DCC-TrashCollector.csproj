@@ -190,8 +190,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomerAddressesController.cs" />
-    <Compile Include="Controllers\CustomerSchedulesController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -239,15 +237,38 @@
     <Compile Include="Migrations\201807170015423_customer schedule and day changes.Designer.cs">
       <DependentUpon>201807170015423_customer schedule and day changes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807172341544_changed customer props.cs" />
+    <Compile Include="Migrations\201807172341544_changed customer props.Designer.cs">
+      <DependentUpon>201807172341544_changed customer props.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180024170_Changed Customer Added City ZipCode State.cs" />
+    <Compile Include="Migrations\201807180024170_Changed Customer Added City ZipCode State.Designer.cs">
+      <DependentUpon>201807180024170_Changed Customer Added City ZipCode State.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180050112_Altered and Seed Models and Tables.cs" />
+    <Compile Include="Migrations\201807180050112_Altered and Seed Models and Tables.Designer.cs">
+      <DependentUpon>201807180050112_Altered and Seed Models and Tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180100389_Small Changes to controllers and views of employee and customer.cs" />
+    <Compile Include="Migrations\201807180100389_Small Changes to controllers and views of employee and customer.Designer.cs">
+      <DependentUpon>201807180100389_Small Changes to controllers and views of employee and customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807180123202_Migration before recreate test of customer ctor and views.cs" />
+    <Compile Include="Migrations\201807180123202_Migration before recreate test of customer ctor and views.Designer.cs">
+      <DependentUpon>201807180123202_Migration before recreate test of customer ctor and views.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\Customer.cs" />
-    <Compile Include="Models\CustomerAddress.cs" />
-    <Compile Include="Models\CustomerSchedule.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\IdentityModels.cs">
+      <BrowseToURL>m</BrowseToURL>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\ZipCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -313,16 +334,6 @@
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\CustomerSchedules\Create.cshtml" />
-    <Content Include="Views\CustomerSchedules\Delete.cshtml" />
-    <Content Include="Views\CustomerSchedules\Details.cshtml" />
-    <Content Include="Views\CustomerSchedules\Edit.cshtml" />
-    <Content Include="Views\CustomerSchedules\Index.cshtml" />
-    <Content Include="Views\CustomerAddresses\Create.cshtml" />
-    <Content Include="Views\CustomerAddresses\Delete.cshtml" />
-    <Content Include="Views\CustomerAddresses\Details.cshtml" />
-    <Content Include="Views\CustomerAddresses\Edit.cshtml" />
-    <Content Include="Views\CustomerAddresses\Index.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
     <Content Include="Views\Customers\Delete.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
@@ -375,6 +386,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807170015423_customer schedule and day changes.resx">
       <DependentUpon>201807170015423_customer schedule and day changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807172341544_changed customer props.resx">
+      <DependentUpon>201807172341544_changed customer props.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180024170_Changed Customer Added City ZipCode State.resx">
+      <DependentUpon>201807180024170_Changed Customer Added City ZipCode State.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180050112_Altered and Seed Models and Tables.resx">
+      <DependentUpon>201807180050112_Altered and Seed Models and Tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180100389_Small Changes to controllers and views of employee and customer.resx">
+      <DependentUpon>201807180100389_Small Changes to controllers and views of employee and customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807180123202_Migration before recreate test of customer ctor and views.resx">
+      <DependentUpon>201807180123202_Migration before recreate test of customer ctor and views.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

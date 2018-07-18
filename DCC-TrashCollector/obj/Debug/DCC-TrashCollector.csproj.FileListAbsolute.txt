@@ -113,7 +113,6 @@ C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\bin\Mi
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\bin\Microsoft.AI.Web.xml
-C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC-TrashCollector.csprojResolveAssemblyReference.cache
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC-TrashCollector.csproj.CoreCompileInputs.cache
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC-TrashCollector.csproj.CopyComplete
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC-TrashCollector.dll
@@ -129,3 +128,9 @@ C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\De
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.datatypechange.resources
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.seeddays.resources
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.customerscheduleanddaychanges.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.changedcustomerprops.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC-TrashCollector.csprojResolveAssemblyReference.cache
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.ChangedCustomerAddedCityZipCodeState.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.AlteredandSeedModelsandTables.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.SmallChangestocontrollersandviewsofemployeeandcustomer.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.Migrationbeforerecreatetestofcustomerctorandviews.resources

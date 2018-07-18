@@ -12,19 +12,35 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerAddress.AddressLine)
+            @Html.DisplayNameFor(model => model.City.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomerAddress.AddressLine)
+            @Html.DisplayFor(model => model.City.Name)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CustomerSchedule.CustomerScheduleId)
+            @Html.DisplayNameFor(model => model.Day.DayChoosen)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CustomerSchedule.CustomerScheduleId)
+            @Html.DisplayFor(model => model.Day.DayChoosen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode.ZipCodeId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode.ZipCodeId)
         </dd>
 
         <dt>
@@ -36,11 +52,51 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Pickedup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pickedup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExtraPickUpDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExtraPickUpDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TempEndDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TempEndDate)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.AspNetUserId)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.AspNetUserId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLine)
         </dd>
 
     </dl>

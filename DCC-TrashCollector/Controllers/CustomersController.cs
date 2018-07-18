@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DCC_TrashCollector.Models;
+using Microsoft.AspNet.Identity;
 
 namespace DCC_TrashCollector.Controllers
 {
@@ -17,7 +18,7 @@ namespace DCC_TrashCollector.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customers = db.Customers.Include(c => c.CustomerAddress).Include(c => c.CustomerSchedule);
+            var customers = db.Customers.Include(c => c.City).Include(c => c.Day).Include(c => c.State).Include(c => c.ZipCode);
             return View(customers.ToList());
         }
 
@@ -39,8 +40,10 @@ namespace DCC_TrashCollector.Controllers
         // GET: Customers/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine");
-            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId");
+            ViewBag.CityId = new SelectList(db.Cities, "CityId", "Name");
+            ViewBag.DayId = new SelectList(db.Days, "DayId", "DayChoosen");
+            ViewBag.StateId = new SelectList(db.States, "StateId", "Name");
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip");
             return View();
         }
 
@@ -49,17 +52,23 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,Balance,AspNetUserId,CustomerAddressId,CustomerScheduleId")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerId,Balance,DayId,Pickedup,ExtraPickUpDate,TempStartDate,TempEndDate,AspNetUserId,AddressLine,CityId,ZipId,StateId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
+
+                //Here want to save the currently logged in user id to employee model
+                customer.AspNetUserId = User.Identity.GetUserId();
+                //--------------------------
                 db.Customers.Add(customer);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine", customer.CustomerAddressId);
-            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId", customer.CustomerScheduleId);
+            ViewBag.CityId = new SelectList(db.Cities, "CityId", "Name", customer.CityId);
+            ViewBag.DayId = new SelectList(db.Days, "DayId", "DayChoosen", customer.DayId);
+            ViewBag.StateId = new SelectList(db.States, "StateId", "Name", customer.StateId);
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "Zip", "ZipCodeId", customer.ZipId);
             return View(customer);
         }
 
@@ -75,8 +84,10 @@ namespace DCC_TrashCollector.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine", customer.CustomerAddressId);
-            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId", customer.CustomerScheduleId);
+            ViewBag.CityId = new SelectList(db.Cities, "CityId", "Name", customer.CityId);
+            ViewBag.DayId = new SelectList(db.Days, "DayId", "DayChoosen", customer.DayId);
+            ViewBag.StateId = new SelectList(db.States, "StateId", "Name", customer.StateId);
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip", customer.ZipId);
             return View(customer);
         }
 
@@ -85,7 +96,7 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,Balance,AspNetUserId,CustomerAddressId,CustomerScheduleId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerId,Balance,DayId,Pickedup,ExtraPickUpDate,TempStartDate,TempEndDate,AspNetUserId,AddressLine,CityId,ZipId,StateId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
@@ -93,8 +104,10 @@ namespace DCC_TrashCollector.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerAddressId = new SelectList(db.CustomerAddresses, "CustomerAddressId", "AddressLine", customer.CustomerAddressId);
-            ViewBag.CustomerScheduleId = new SelectList(db.CustomerSchedules, "CustomerScheduleId", "CustomerScheduleId", customer.CustomerScheduleId);
+            ViewBag.CityId = new SelectList(db.Cities, "CityId", "Name", customer.CityId);
+            ViewBag.DayId = new SelectList(db.Days, "DayId", "DayChoosen", customer.DayId);
+            ViewBag.StateId = new SelectList(db.States, "StateId", "Name", customer.StateId);
+            ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip", customer.ZipId);
             return View(customer);
         }
 
