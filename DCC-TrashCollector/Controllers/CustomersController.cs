@@ -23,13 +23,19 @@ namespace DCC_TrashCollector.Controllers
         }
 
         // GET: Customers/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Customer customer = db.Customers.Find(id);
+            //don't use id
+            // alter query to get current logged in user and then
+            // using the foreign key in customer retrieve id that way
+            var currentUserId = User.Identity.GetUserId();
+            Customer customer = db.Customers
+                                   .Include(c => c.City)
+                                   .Include(c => c.Day)
+                                   .Include(c => c.State)
+                                   .Include(c => c.ZipCode)
+                                   .SingleOrDefault(x => x.AspNetUserId == currentUserId);
+
             if (customer == null)
             {
                 return HttpNotFound();
@@ -52,17 +58,18 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CustomerId,Balance,DayId,Pickedup,ExtraPickUpDate,TempStartDate,TempEndDate,AspNetUserId,AddressLine,CityId,ZipId,StateId")] Customer customer)
+        public ActionResult Create([Bind(Include = "CustomerId,Balance,DayId,Pickedup,ExtraPickUpDate,TempStartDate,TempEndDate,AddressLine,CityId,ZipId,StateId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
 
                 //Here want to save the currently logged in user id to employee model
-                customer.AspNetUserId = User.Identity.GetUserId();
+                customer.AspNetUserId = User.Identity.GetUserId(); 
+
                 //--------------------------
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details");
             }
 
             ViewBag.CityId = new SelectList(db.Cities, "CityId", "Name", customer.CityId);
@@ -96,7 +103,7 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CustomerId,Balance,DayId,Pickedup,ExtraPickUpDate,TempStartDate,TempEndDate,AspNetUserId,AddressLine,CityId,ZipId,StateId")] Customer customer)
+        public ActionResult Edit([Bind(Include = "CustomerId,Balance,DayId,Pickedup,ExtraPickUpDate,TempStartDate,TempEndDate,AddressLine,CityId,ZipId,StateId")] Customer customer)
         {
             if (ModelState.IsValid)
             {

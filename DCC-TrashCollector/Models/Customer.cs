@@ -34,7 +34,7 @@ namespace DCC_TrashCollector.Models
 
         // ~~~~~ User ~~~~~
         public string AspNetUserId { get; set; }
-
+       
 
         //~~~~~~~~~ Address Section ~~~~~~~~~~
         public string AddressLine { get; set; }
