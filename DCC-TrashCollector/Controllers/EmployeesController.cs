@@ -22,6 +22,67 @@ namespace DCC_TrashCollector.Controllers
             return View(employees.ToList());
         }
 
+        public ActionResult Portal(int? dayChoice)
+        {
+            //also if during pause period return 0 or null
+            var customersPerZip = GetEmployeeCustomers();
+            if (dayChoice == null)
+            {
+                var currentDayId = GetCurrentDayId();
+                customersPerZip = customersPerZip.Where(c => c.DayId == currentDayId);
+            }
+            else
+            {
+                //Form Extra Days
+                foreach(var cust in customersPerZip)
+                { 
+                       customersPerZip = customersPerZip.Where(c => c.DayId == dayChoice);
+                }
+               
+
+            }
+            
+            return View(customersPerZip.ToList());
+        }
+
+
+        private int GetCurrentDayId(DateTime? dateTime)
+        {
+            //not part of userstories
+                var currentDayString = dateTime.Value.DayOfWeek.ToString();
+                var day = db.Days.Where(dy => dy.DayChoosen == currentDayString);
+
+                return day.Single().DayId;
+            
+        }
+
+        private int GetCurrentDayId()
+        {
+            //var currentDayString = DateTime.Now.DayOfWeek.ToString(); 
+            var currentDayString = "Friday"; // change back to ^ later
+            var day = db.Days.Where(dy => dy.DayChoosen == currentDayString);
+            return day.SingleOrDefault().DayId;
+        }
+
+
+        private IEnumerable<Customer> GetEmployeeCustomers()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            Employee employee = db.Employees.SingleOrDefault(e => e.AspNetUserId == currentUserId);
+
+            IEnumerable<Customer> customersPerZip = new List<Customer>();
+            if (employee.AspNetUserId == currentUserId)
+            {
+                customersPerZip = db.Customers.Where(cust => cust.ZipId == employee.ZipId).Include(c => c.City)
+                                   .Include(c => c.Day)
+                                   .Include(c => c.State)
+                                   .Include(c => c.ZipCode);
+                
+            }
+            return customersPerZip;
+
+        }
+
         // GET: Employees/Details/5
         public ActionResult Details(int? id)
         {
@@ -49,7 +110,7 @@ namespace DCC_TrashCollector.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeId,ZipId,AspNetUserId")] Employee employee)
+        public ActionResult Create([Bind(Include = "EmployeeId,ZipId")] Employee employee)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +120,7 @@ namespace DCC_TrashCollector.Controllers
                 //--------------------------
                 db.Employees.Add(employee);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Customers",null);
             }
 
             ViewBag.ZipId = new SelectList(db.ZipCodes, "ZipCodeId", "Zip", employee.ZipId);

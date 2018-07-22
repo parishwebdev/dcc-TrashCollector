@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DCC_TrashCollector.Models.Customer>
+@{
+    ViewBag.Title = "Portal";
+}
+
+<h2>Employee Portal</h2>
+<hr />
+<h4>Filter By Weekly Day:</h4>
+@using (Html.BeginForm())
+{
+
+    @Html.RadioButton("dayChoice", 1) @:Monday
+    @Html.RadioButton("dayChoice", 2) @:Tuesday
+    @Html.RadioButton("dayChoice", 3) @:Wednesday
+    @Html.RadioButton("dayChoice", 4) @:Thursday
+    @Html.RadioButton("dayChoice", 5) @:Friday
+    @:&nbsp; <button class="btn btn-primary btn-sm" type="submit">Filter</button>
+}
+<br />
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.City.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Day.DayChoosen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.State.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ZipCode.Zip)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Balance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pickedup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExtraPickUpDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TempStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TempEndDate)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.AddressLine)
+            </th>
+        </tr>
+        @foreach (var cust in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.City.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.Day.DayChoosen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.State.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.ZipCode.Zip)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.Balance)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.Pickedup)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.ExtraPickUpDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.TempStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.TempEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => cust.AddressLine)
+                </td>
+            </tr>
+        }
+    </table>
+</div>

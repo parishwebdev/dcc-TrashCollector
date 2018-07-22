@@ -134,3 +134,6 @@ C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\De
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.AlteredandSeedModelsandTables.resources
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.SmallChangestocontrollersandviewsofemployeeandcustomer.resources
 C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.Migrationbeforerecreatetestofcustomerctorandviews.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.addingApplicationuservartocustomermodel.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.addedforeignkeyforappuseridoncustomermodel.resources
+C:\Users\Matthew_2\source\repos\DCC\DCC-TrashCollector\DCC-TrashCollector\obj\Debug\DCC_TrashCollector.Migrations.removedforignkeythatIjustadded.resources

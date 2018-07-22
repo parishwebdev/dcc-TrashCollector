@@ -9,6 +9,7 @@
 <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
+
             <th>
                 @Html.DisplayNameFor(model => model.City.Name)
             </th>
@@ -45,43 +46,44 @@
 
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.City.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Day.DayChoosen)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.State.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ZipCode.Zip)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Balance)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Pickedup)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ExtraPickUpDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TempStartDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TempEndDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.AddressLine)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.CustomerId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
-                </td>
-            </tr>
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.City.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Day.DayChoosen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode.Zip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pickedup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExtraPickUpDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TempStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TempEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddressLine)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.CustomerId }) |
+                @Html.ActionLink("Details", "Details") |
+                @Html.ActionLink("Delete", "Delete", new { id = item.CustomerId })
+            </td>
+        </tr>
         }
 
     </table>

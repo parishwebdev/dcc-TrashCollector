@@ -1,0 +1,31 @@
+        public ActionResult Portal(int? dayChoice)
+        {
+            //also if during pause period return 0 or null
+            var customersPerZip = GetEmployeeCustomers();
+            if (dayChoice == null)
+            {
+                var currentDayId = GetCurrentDayId();
+                customersPerZip = customersPerZip.Where(c => c.DayId == currentDayId);
+            }
+            else
+            {
+                //ExtaPickUpDay
+                foreach(var cust in customersPerZip)
+                {
+                    var currentExtraDayId = GetCurrentDayId(cust.ExtraPickUpDate);
+                    var currentDayId = GetCurrentDayId();
+                    if (dayChoice == currentExtraDayId )
+                    {
+                        customersPerZip = customersPerZip.Where(c => c.DayId == currentExtraDayId);
+                    }
+                    else if (dayChoice == GetCurrentDayId())
+                    {
+                        customersPerZip = customersPerZip.Where(c => c.DayId == currentDayId);
+                    }
+                }
+               
+
+            }
+            
+            return View(customersPerZip.ToList());
+        }

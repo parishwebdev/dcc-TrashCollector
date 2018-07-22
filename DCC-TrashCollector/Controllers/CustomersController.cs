@@ -16,6 +16,7 @@ namespace DCC_TrashCollector.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Customers
+        [Authorize(Roles = "Employee")]
         public ActionResult Index()
         {
             var customers = db.Customers.Include(c => c.City).Include(c => c.Day).Include(c => c.State).Include(c => c.ZipCode);
@@ -25,21 +26,22 @@ namespace DCC_TrashCollector.Controllers
         // GET: Customers/Details/5
         public ActionResult Details()
         {
-            //don't use id
-            // alter query to get current logged in user and then
-            // using the foreign key in customer retrieve id that way
+            Customer customer = null;
+            
             var currentUserId = User.Identity.GetUserId();
-            Customer customer = db.Customers
+              customer = db.Customers
                                    .Include(c => c.City)
                                    .Include(c => c.Day)
                                    .Include(c => c.State)
                                    .Include(c => c.ZipCode)
                                    .SingleOrDefault(x => x.AspNetUserId == currentUserId);
 
+
             if (customer == null)
             {
                 return HttpNotFound();
             }
+            
             return View(customer);
         }
 
@@ -64,8 +66,8 @@ namespace DCC_TrashCollector.Controllers
             {
 
                 //Here want to save the currently logged in user id to employee model
-                customer.AspNetUserId = User.Identity.GetUserId(); 
-
+                customer.AspNetUserId = User.Identity.GetUserId();
+                customer.Balance = 0.00M;
                 //--------------------------
                 db.Customers.Add(customer);
                 db.SaveChanges();

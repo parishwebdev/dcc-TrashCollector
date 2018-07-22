@@ -257,6 +257,18 @@
     <Compile Include="Migrations\201807180123202_Migration before recreate test of customer ctor and views.Designer.cs">
       <DependentUpon>201807180123202_Migration before recreate test of customer ctor and views.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807200030081_adding Application user var to customer model.cs" />
+    <Compile Include="Migrations\201807200030081_adding Application user var to customer model.Designer.cs">
+      <DependentUpon>201807200030081_adding Application user var to customer model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807200053093_added foreign key for app user  id on customer model.cs" />
+    <Compile Include="Migrations\201807200053093_added foreign key for app user  id on customer model.Designer.cs">
+      <DependentUpon>201807200053093_added foreign key for app user  id on customer model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201807200110284_removed forign key that I just added.cs" />
+    <Compile Include="Migrations\201807200110284_removed forign key that I just added.Designer.cs">
+      <DependentUpon>201807200110284_removed forign key that I just added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -339,6 +351,7 @@
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Employees\Portal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -401,6 +414,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807180123202_Migration before recreate test of customer ctor and views.resx">
       <DependentUpon>201807180123202_Migration before recreate test of customer ctor and views.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807200030081_adding Application user var to customer model.resx">
+      <DependentUpon>201807200030081_adding Application user var to customer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807200053093_added foreign key for app user  id on customer model.resx">
+      <DependentUpon>201807200053093_added foreign key for app user  id on customer model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807200110284_removed forign key that I just added.resx">
+      <DependentUpon>201807200110284_removed forign key that I just added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

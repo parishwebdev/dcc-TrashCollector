@@ -166,7 +166,7 @@ namespace DCC_TrashCollector.Controllers
 
                     if(model.UserRole == "Customer")
                     {
-                        return RedirectToAction("Create", "Customer");
+                        return RedirectToAction("Create", "Customers");
                     }
                     else if (model.UserRole == "Employee")
                     {

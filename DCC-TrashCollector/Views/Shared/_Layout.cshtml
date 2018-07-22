@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -21,7 +20,7 @@
                 @Html.ActionLink("Matts Trash Collecting", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav ">
                     <li><a href="@Url.Action("Index", "Home")">Home <i class='fas fa-home'></i></a></li>
 
                     @if (User.IsInRole("Customer"))
@@ -33,11 +32,11 @@
                     }
                     @if (User.IsInRole("Employee"))
                     {
-                        <li><a href="@Url.Action("Index", "Customers")">Employee Portal <i class="fas fa-user-circle"></i></a></li>
+                        <li><a href="@Url.Action("Portal", "Employees")">Employee Portal <i class="fas fa-user-circle"></i></a></li>
                     }
-
+                      
                 </ul>
-                @Html.Partial("_LoginPartial")
+               @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
