@@ -1,14 +1,27 @@
 ﻿@model DCC_TrashCollector.Models.Customer
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "PortalConfirm";
 }
 
-<h2>Details</h2>
+<h2>Portal Confirm</h2>
+<hr />
+
+<h3>Confirm Customer Pickup:</h3>
+@using (Html.BeginForm("SubmitPortalConfirm", "Employees", FormMethod.Post))
+{
+
+    @Html.ActionLink("Back", "Portal", "Employees", new { area = "" }, new { @class = "btn btn-danger" })
+
+    @Html.Hidden("confirmHiddenCustId", Model.CustomerId);
+
+    <button class="btn btn-success" name="confirmSubmitBtn" type="submit">Confirm Pickup</button>
+}
+
+<br />
 
 <div>
-    <h4>Customer</h4>
-    <hr />
+    <h4>Customer Information: </h4>
     <dl class="dl-horizontal">
 
         <dt>
@@ -49,28 +62,18 @@
 
         <dd>
             @Html.DisplayFor(model => model.Balance)
-            
-            @{
-                if(Model.Balance != 0.00M)
-                {
-                    @:Per Week |
-                    @Html.DisplayFor(model => model.MonthBalance) @:Per Month
-                }
-
-            }
-            
         </dd>
 
         @if (User.IsInRole("Employee"))
-         {
-        <dt>
-            @Html.DisplayNameFor(model => model.Pickedup)
-        </dt>
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.Pickedup)
+            </dt>
 
 
-        <dd>
-            @Html.DisplayFor(model => model.Pickedup)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.Pickedup)
+            </dd>
         }
         <dt>
             @Html.DisplayNameFor(model => model.ExtraPickUpDate)
@@ -107,11 +110,4 @@
 
     </dl>
 </div>
-<p>
 
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CustomerId })
-    @if (User.IsInRole("Employee"))
-    {
-    @Html.ActionLink("Back to List", "Index");
-     }
-</p>

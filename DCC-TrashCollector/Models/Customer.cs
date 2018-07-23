@@ -13,6 +13,22 @@ namespace DCC_TrashCollector.Models
         public int CustomerId { get; set; }
         public decimal Balance { get; set; }
 
+        public decimal MonthBalance
+        {
+            get
+            {
+                if (Balance != 0)
+                {
+                    return Balance * 4;
+                }
+                else
+                {
+                    return 0.00M;
+                }
+            }
+        }
+        
+
         //~~~~~~~ Day Section ~~~~~~~~
         [ForeignKey("Day")]
         [Display(Name = "Pick Up Day")]

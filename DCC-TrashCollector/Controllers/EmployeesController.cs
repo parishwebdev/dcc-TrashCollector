@@ -22,6 +22,51 @@ namespace DCC_TrashCollector.Controllers
             return View(employees.ToList());
         }
 
+
+
+
+        public ActionResult PortalConfirm(int id)
+        {
+
+            Customer customer = null;
+            
+            customer = db.Customers
+                                 .Include(c => c.City)
+                                 .Include(c => c.Day)
+                                 .Include(c => c.State)
+                                 .Include(c => c.ZipCode)
+                                 .SingleOrDefault(x => x.CustomerId == id);
+
+
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(customer);
+            
+        }
+
+
+        public ActionResult SubmitPortalConfirm()
+        {
+
+            if (Request.Form["confirmSubmitBtn"] != null)
+            {
+                int custId = Int32.Parse( Request.Form["confirmHiddenCustId"]);
+                Customer customer = db.Customers.Where(c => c.CustomerId == custId).Single();
+
+                customer.Balance += 12.00M;
+                customer.Pickedup = true;
+
+                db.SaveChanges();
+
+            }
+
+            return RedirectToAction("Portal");
+        }
+
+
         public ActionResult Portal(int? dayChoice)
         {
             //also if during pause period return 0 or null

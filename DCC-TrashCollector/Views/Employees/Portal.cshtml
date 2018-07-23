@@ -52,6 +52,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.AddressLine)
             </th>
+            <th></th>
         </tr>
         @foreach (var cust in Model)
         {
@@ -86,6 +87,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => cust.AddressLine)
                 </td>
+                <td>@Html.ActionLink("Confirm Pickup", "PortalConfirm", new { id = cust.CustomerId }) </td>
             </tr>
         }
     </table>
