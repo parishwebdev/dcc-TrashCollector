@@ -46,5 +46,6 @@ namespace DCC_TrashCollector.Models
 
         public System.Data.Entity.DbSet<DCC_TrashCollector.Models.State> States { get; set; }
 
+ 
     }
 }

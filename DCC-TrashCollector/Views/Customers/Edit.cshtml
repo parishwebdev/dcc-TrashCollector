@@ -46,7 +46,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.ExtraPickUpDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ExtraPickUpDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.ExtraPickUpDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" }) 
                 @Html.ValidationMessageFor(model => model.ExtraPickUpDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -54,7 +54,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TempStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TempStartDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.TempStartDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" }) 
                 @Html.ValidationMessageFor(model => model.TempStartDate, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -62,7 +62,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.TempEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.TempEndDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.TempEndDate, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control" }) 
                 @Html.ValidationMessageFor(model => model.TempEndDate, "", new { @class = "text-danger" })
             </div>
         </div>

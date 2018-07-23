@@ -269,6 +269,10 @@
     <Compile Include="Migrations\201807200110284_removed forign key that I just added.Designer.cs">
       <DependentUpon>201807200110284_removed forign key that I just added.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201807232040565_got rid of test .cs" />
+    <Compile Include="Migrations\201807232040565_got rid of test .Designer.cs">
+      <DependentUpon>201807232040565_got rid of test .cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -424,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807200110284_removed forign key that I just added.resx">
       <DependentUpon>201807200110284_removed forign key that I just added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201807232040565_got rid of test .resx">
+      <DependentUpon>201807232040565_got rid of test .cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

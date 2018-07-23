@@ -103,8 +103,11 @@ namespace DCC_TrashCollector.Controllers
 
         private int GetCurrentDayId()
         {
-            //var currentDayString = DateTime.Now.DayOfWeek.ToString(); 
-            var currentDayString = "Friday"; // change back to ^ later
+            var currentDayString = DateTime.Now.DayOfWeek.ToString(); 
+            if (currentDayString == "Saturday" || currentDayString == "Sunday")
+            {
+                currentDayString = "Friday";
+            }
             var day = db.Days.Where(dy => dy.DayChoosen == currentDayString);
             return day.SingleOrDefault().DayId;
         }
