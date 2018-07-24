@@ -25,6 +25,7 @@ namespace DCC_TrashCollector
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/BootswatchTheme.css",
                       "~/Content/site.css"));
         }
     }

@@ -3,6 +3,44 @@
 @{
     ViewBag.Title = "PortalConfirm";
 }
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyA15qc_S7zsXjbE0tknoTs-AaAItRhNnC0"></script>
+<script type="text/javascript">
+
+    var geocoder = new google.maps.Geocoder(); 
+    var address = "@Html.DisplayFor(model => model.AddressLine)";
+    geocoder.geocode({ 'address': address }, function (results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+
+
+            initialize(latitude, longitude);
+
+        }
+
+    });
+
+
+    function initialize(latitude, longitude) {
+        var latlng = new google.maps.LatLng(latitude, longitude);
+
+        var myOptions = {
+            zoom: 15,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeControl: false
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+        var marker = new google.maps.Marker({
+            position: latlng,
+            map: map, 
+        });
+    }
+
+
+</script>
 
 <h2>Portal Confirm</h2>
 <hr />
@@ -19,95 +57,102 @@
 }
 
 <br />
+<div class="row">
+    <div class="col-md-6">
+        <h4>Customer Information: </h4>
+        <dl class="dl-horizontal">
 
-<div>
-    <h4>Customer Information: </h4>
-    <dl class="dl-horizontal">
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Day.DayChoosen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Day.DayChoosen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ZipCode.Zip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ZipCode.Zip)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Balance)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Balance)
-        </dd>
-
-        @if (User.IsInRole("Employee"))
-        {
             <dt>
-                @Html.DisplayNameFor(model => model.Pickedup)
+                @Html.DisplayNameFor(model => model.City.Name)
             </dt>
 
+            <dd>
+                @Html.DisplayFor(model => model.City.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Day.DayChoosen)
+            </dt>
 
             <dd>
-                @Html.DisplayFor(model => model.Pickedup)
+                @Html.DisplayFor(model => model.Day.DayChoosen)
             </dd>
-        }
-        <dt>
-            @Html.DisplayNameFor(model => model.ExtraPickUpDate)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ExtraPickUpDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.State.Name)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TempStartDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.State.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TempStartDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.ZipCode.Zip)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TempEndDate)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ZipCode.Zip)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TempEndDate)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Balance)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Balance)
+            </dd>
+
+            @if (User.IsInRole("Employee"))
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Pickedup)
+                </dt>
 
 
-        <dt>
-            @Html.DisplayNameFor(model => model.AddressLine)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Pickedup)
+                </dd>
+            }
+            <dt>
+                @Html.DisplayNameFor(model => model.ExtraPickUpDate)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.AddressLine)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.ExtraPickUpDate)
+            </dd>
 
-    </dl>
+            <dt>
+                @Html.DisplayNameFor(model => model.TempStartDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TempStartDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TempEndDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TempEndDate)
+            </dd>
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AddressLine)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AddressLine)
+            </dd>
+
+        </dl>
+    </div>
+
+    <div class="col-md-4">
+        <div id="map_canvas" style="width:45rem; height:30rem"></div>
+    </div>
+
+
 </div>
 
